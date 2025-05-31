@@ -858,6 +858,12 @@ h2 {
     flex: 1 1 100%;
   }
 }
+@media (max-width: 600px) {
+  .category-nav button {
+    flex: 1 1 100%; /* full-width buttons on small screens */
+    text-align: center;
+  }
+}
 
 @media (max-width: 480px) {
   header {
