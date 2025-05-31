@@ -757,21 +757,22 @@ h2 {
 
 /* Mobile responsive tweaks */
 @media screen and (max-width: 768px) {
-
   body {
     font-size: 16px;
+    text-align: center; /* ensures inline elements are centered */
   }
 
   header {
     font-size: 1.5rem;
     padding: 15px;
+    text-align: center; /* center text inside header */
   }
 
   #userInfo {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center; /* change from flex-start to center */
     gap: 10px;
-    text-align: left;
+    text-align: center;
   }
 
   .container,
@@ -782,11 +783,12 @@ h2 {
   #myOrdersSection {
     padding: 15px;
     margin: 15px 10px;
+    text-align: center;
   }
 
   .menu-item {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .menu-item label,
@@ -815,11 +817,11 @@ h2 {
   .orders-section ul,
   #myOrdersList {
     padding: 0;
+    text-align: left; /* optional: revert to left if needed for list */
   }
-
-  
-
 }
+
+
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .main-container {
