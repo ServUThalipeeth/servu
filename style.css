@@ -412,20 +412,6 @@ h2 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive layout */
-@media (max-width: 768px) {
-  .info-sections {
-    flex-direction: column;
-  }
-
-  .health-benefits,
-  .dish-highlight {
-    flex: 1 1 100%;
-  }
-}
-
-
-
   #loginForm {
     max-width: 300px;
     margin: auto;
