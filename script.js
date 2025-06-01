@@ -575,3 +575,23 @@ function formatDate(dateObj) {
 
   return `${day}-${month}-${year} ${hours}:${minutes}`;
 }
+
+document.getElementById("registerBtn").addEventListener("click", async () => {
+  const email = document.getElementById("registerEmail").value.trim();
+  const password = document.getElementById("registerPassword").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+
+  if (password !== confirmPassword) {
+    showToast("Passwords do not match!");
+    return;
+  }
+
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    showToast("Registration successful!");
+    console.log("User created:", userCredential.user);
+  } catch (error) {
+    console.error("Error during registration:", error);
+    showToast("Registration failed: " + error.message);
+  }
+});
