@@ -47,7 +47,10 @@ const docRef = doc(db, "settings", "ShopStatus");
 onSnapshot(docRef, (docSnap) => {
   if (docSnap.exists()) {
     const data = docSnap.data();
-    statusEl.textContent = data.isOpen ? "✅ Shop is OPEN" : "❌ Shop is CLOSED";
+    statusEl.innerHTML = data.isOpen
+  ? '<span style="color: green; font-weight: bold;">✅ Shop is OPEN</span>'
+  : '<span style="color: red; font-weight: bold;">❌ Shop is CLOSED</span>';
+
     orderBtn.disabled = !data.isOpen;
   }
 });
@@ -576,22 +579,4 @@ function formatDate(dateObj) {
   return `${day}-${month}-${year} ${hours}:${minutes}`;
 }
 
-document.getElementById("registerBtn").addEventListener("click", async () => {
-  const email = document.getElementById("registerEmail").value.trim();
-  const password = document.getElementById("registerPassword").value;
-  const confirmPassword = document.getElementById("confirmPassword").value;
 
-  if (password !== confirmPassword) {
-    showToast("Passwords do not match!");
-    return;
-  }
-
-  try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    showToast("Registration successful!");
-    console.log("User created:", userCredential.user);
-  } catch (error) {
-    console.error("Error during registration:", error);
-    showToast("Registration failed: " + error.message);
-  }
-});
